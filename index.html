@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Surya Food Delivery App</title>
+    <style>
+         *{
+             text-align: center;
+             background-color: azure;
+             color: navy;
+             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         }
+
+         .image{
+             display:flex ;
+             flex-direction: row;
+             height:150px;
+             margin-left: 20px; 
+             justify-content: center;
+             
+         }
+         
+         
+
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME TO GREAT PIZZA STORE</h1>
+    <form id="getform">
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name"><br><br>
+        <label for="add">Address:</label>
+        <input type="text" id="add"><br><br>
+
+        <h2>CHOOSE YOUR PIZZA TYPE:</h2>
+        <div class="image">
+            <img src="./istockphoto-1168754685-612x612.jpg" alt="Margerita Pizza"><br><br>
+            <input type="radio" id="pizza1" name="pizza" value="margerita">Margerita<br><br>
+            <img src="./hawai piza.jpg" alt="Hawai Pizza"><br><br>
+            <input type="radio" id="pizza2" name="pizza" value="hawai">Hawai<br><br>
+            <img src="./meat1.jpg" alt="Meat Pizza"><br><br>
+            <input type="radio" id="pizza3" name="pizza" value="meat">Meat<br><br>
+            <img src="./supreme pizza.jpg" alt="Supreme Pizza"><br><br>
+            <input type="radio" id="pizza4" name="pizza" value="supreme">Supreme<br><br>
+        </div>
+
+        <div class="toppings">
+            <h2>ADD ONS</h2>
+            <input type="checkbox" id="anch" name="anchovies">  
+            <label for="anch">Anchovies</label><br><br>
+            <input type="checkbox" id="mushroom" name="mushroom">
+            <label for="mushroom">Mushroom</label><br><br>
+            <input type="checkbox" id="olives" name="olives">
+            <label for="olives">Olives</label><br><br>
+            <input type="checkbox" id="chillie" name="chillie">
+            <label for="chillie">Chillie</label><br><br>
+        </div>
+
+        <div class="pizzatotal">
+            <h3>Please enter the counts of pizza</h3>
+            <input type="number" id="pizzacount" min="1" max="20" value="1">
+            <input type="button" onclick="final()" value="calculate">
+        </div><br><br>
+
+        <div class="block">
+            <label for="calculation">Total Price:</label><br><br>
+            <input type="text" id="sum"><br><br>
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+    <script>
+        function final() {
+            var pizzacount = parseInt(document.getElementById("pizzacount").value);
+            var margerita = 150;
+            var hawai = 200;
+            var meat = 250;
+            var supreme = 300;
+            var anchiovies=20;
+            var mushroom=50;
+            var olives=75;
+            var chiili=10;
+            var total = 0;
+
+            if (document.getElementById("pizza1").checked) {
+                total += margerita * pizzacount;
+            }
+            if (document.getElementById("pizza2").checked) {
+                total += hawai * pizzacount;
+            }
+            if (document.getElementById("pizza3").checked) {
+                total += meat * pizzacount;
+            }
+            if (document.getElementById("pizza4").checked) {
+                total += supreme * pizzacount;
+            }
+            if(document.getElementById("anch").checked){
+                 total=total+anchiovies;
+            }if(document.getElementById("mushroom").checked){
+                 total=total+mushroom;
+            }if(document.getElementById("chillie").checked){
+                 total=total+chilli;
+            }if(document.getElementById("olives").checked){
+                 total=total+olives;
+            }
+        document.getElementById('sum').value=total;
+        }
+        var customerName = document.getElementById("name").value;
+            alert("Thank you, " + customerName + "! Your total is: $" + total);
+
+    </script>
+</body>
+</html> 
